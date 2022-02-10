@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import {Container, Row, Col} from 'reactstrap';
 import RecipeCreate from './RecipeCreate/RecipeCreate';
+import RecipeTable from './RecipeTable/RecipeTable';
 
 const RecipeIndex = (props) => {
     const [recipes, setRecipes] = useState([]);
+    const [refreshRecipeTable, setrefreshRecipeTable] = useState();
 
-const FetchRecipes  = () => {
+const FetchRecipes = () => {
     fetch('http://localhost:4000/recipe', {
         method: 'GET',
         headers: new Headers ({
@@ -24,12 +26,15 @@ const FetchRecipes  = () => {
 } 
 
     return ( 
+        
         <div>
-            <Col md="3">
-                <RecipeCreate fetchRecipes={FetchRecipes} /*token={props.token}*//>
+          
+            <Col md="2">
+                <RecipeCreate fetchRecipes={FetchRecipes}
+                 /*token={props.token}*//>
             </Col>
-            <Col md="9">
-                <h2>Create a recipe to see a table</h2>
+            <Col md="12">
+                <RecipeTable recipes={recipes} fetchRecipes={FetchRecipes} />
             </Col>
         </div>
      );

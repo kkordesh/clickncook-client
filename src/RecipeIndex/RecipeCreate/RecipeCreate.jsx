@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import {Button, Form, FormGroup, Label, Input, Container} from 'reactstrap';
+import { APIURL } from '../../endpoints';
+import { EndPoints } from '../../endpoints';
+import RecipeIndex from '../RecipeIndex';
 
 const RecipeCreate = (props) => {
+    const {FetchRecipes} = props
+
     const [nameOfRecipe, setNameOfRecipe] = useState('');
     const [directions, setDirections] = useState('');
     const [timeToCook, setTimeToCook] = useState('');
@@ -10,7 +15,7 @@ const RecipeCreate = (props) => {
     const [image, setImage] = useState('');
     const [loading, setLoading] = useState(false);
 
-    const HandleSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         fetch('http://localhost:4000/recipe/', {
             method: 'POST',
@@ -29,7 +34,7 @@ const RecipeCreate = (props) => {
             setServings("");
             setCategory("");
             setImage("");
-            props.fetchRecipe();
+            props.fetchRecipes();
         })
     }
 
@@ -58,7 +63,7 @@ const RecipeCreate = (props) => {
     return ( 
         <>
           <h3>Create a Recipe</h3>
-          <Form onSubmit={HandleSubmit}>
+          <Form onSubmit={handleSubmit}>
           <FormGroup>
               <Label htmlFor='nameOfRecipe'/>
               <input name="nameOfRecipe" placeholder='name of recipe' value={nameOfRecipe} onChange={(e) => setNameOfRecipe(e.target.value)} />
