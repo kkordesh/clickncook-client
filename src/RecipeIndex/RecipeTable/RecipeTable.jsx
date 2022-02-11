@@ -12,10 +12,10 @@ const deleteRecipe = (recipe) => {
         method: 'DELETE',
         headers: new Headers ({
             'Content-Type': 'application/json',
-            //'Authorization': props.token
+            'Authorization': props.token
         })
     })
-    .then(() => props.fetchRecipes())
+    .then(() => props.FetchMyRecipes())
 }
 
 
@@ -30,7 +30,7 @@ const recipeMapper = () => {
                 <td>{recipe.category}</td>
                 <td>{recipe.image}</td>
                 <td>
-                    <Button>Update</Button>
+                    <Button onClick={()=> {props.editUpdateRecipe(recipe); props.updateOn()}}>Update</Button>
                     <Button onClick={() => {deleteRecipe(recipe)}}>Delete</Button>
                 </td>
             </tr>

@@ -5,7 +5,7 @@ import { EndPoints } from '../../endpoints';
 import RecipeIndex from '../RecipeIndex';
 
 const RecipeCreate = (props) => {
-    const {FetchRecipes} = props
+    
 
     const [nameOfRecipe, setNameOfRecipe] = useState('');
     const [directions, setDirections] = useState('');
@@ -17,13 +17,13 @@ const RecipeCreate = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch('http://localhost:4000/recipe/', {
+        fetch('http://localhost:4000/recipe', {
             method: 'POST',
-            body: JSON.stringify({recipe:{nameOfRecipe: nameOfRecipe, directions: directions, timeToCook: timeToCook, servings:Number(servings),
-            category: category, image: image}}),
+            body: JSON.stringify({nameOfRecipe: nameOfRecipe, directions: directions, timeToCook: timeToCook, servings:Number(servings),
+            category: category, image: image}),
             headers: new Headers ({
                 'Content-Type': 'application/json',
-               // 'Authorization': props.token
+                'Authorization': props.token
             })
         }) .then((res) => res.json())
         .then((recipeData) => {

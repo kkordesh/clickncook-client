@@ -6,8 +6,10 @@ export const EndPoints = {
     recipe: {
         create:"/recipe/",
         getAllRecipes:"/recipe/",
-        getUserRecipes:"/:owner_id"
-    },
+        getUserRecipes:"/:owner_id",
+
+   
+},
 };
 
 export const APIURL = "http://localhost:4000"
