@@ -1,6 +1,8 @@
 //recipe edit jsx here
 import React, { useState } from 'react';
-import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, Container} from 'reactstrap'
+import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, Container, ModalFooter} from 'reactstrap'
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const RecipeEdit = (props) => {
     const [editName, setEditName] = useState(props.recipeToUpdate.nameOfRecipe);
@@ -10,6 +12,8 @@ const RecipeEdit = (props) => {
     const [editCategory, setEditCategory] = useState(props.recipeToUpdate.category);
     const [editImage, setEditImage] = useState(props.recipeToUpdate.image);
     const [loading, setLoading] = useState(false);
+    const [modal, setModal] = useState(false);
+    const togglePopup = () => setModal(!modal);
 
     const recipeUpdate = (e, recipe) => {
         e.preventDefault();
@@ -23,8 +27,8 @@ const RecipeEdit = (props) => {
             })
         }) .then ((res) => {
             console.log(res)
-            props.FetchMyRecipes();
             props.updateOff();
+            props.FetchMyRecipes();
         })
     }
 
@@ -33,7 +37,7 @@ const RecipeEdit = (props) => {
         const files = e.target.files;
         const data = new FormData();
         data.append("file", files[0]);
-        data.append("upload_preset", "images");
+        data.append("upload_preset", "clickncook");
         setLoading(true);
         const res = await fetch (
             "https://api.cloudinary.com/v1_1/dw451lydk/image/upload",
@@ -51,6 +55,7 @@ const RecipeEdit = (props) => {
 
 
     return ( 
+        <div>
         <Modal isOpen={true}>
             <ModalHeader>Edit Recipe</ModalHeader>
             <ModalBody>
@@ -88,11 +93,14 @@ const RecipeEdit = (props) => {
                     {loading ? (<h3>Loading...</h3>) : <img src={editImage} style={{width: "300px"}}/>}
                 </FormGroup>
                 </Container>
+                <ModalFooter>
             <Button type="submit">Click to Submit</Button>
-                    
+            
+                    </ModalFooter>
                 </Form>
             </ModalBody>
         </Modal>
+        </div>
      );
 }
  

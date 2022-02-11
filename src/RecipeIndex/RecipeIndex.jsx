@@ -4,12 +4,20 @@ import RecipeCreate from './RecipeCreate/RecipeCreate';
 import RecipeTable from './RecipeTable/RecipeTable';
 import RecipeEdit from './RecipeEdit/RecipeEdit';
 
+
 const RecipeIndex = (props) => {
     const [recipes, setRecipes] = useState([]);
     const [updateActive, setUpdateActive] = useState(false);
     const [recipeToUpdate, setRecipeToUpdate] = useState([]);
-
+    const [myRecipes, setMyRecipes] = useState([]);
+    const [allRecipes, setAllRecipes] = useState([]);
+    const [isAllRecipesVisible, setIsAllRecipesVisible] = useState(true);
     console.log(props.token)
+
+
+function handleToggle () {
+    setIsAllRecipesVisible(!isAllRecipesVisible)
+}
 
 const FetchRecipes = () => {
     fetch('http://localhost:4000/recipe', {
@@ -20,13 +28,15 @@ const FetchRecipes = () => {
         })
     }) .then ((res) => res.json())
     .then((recipeData) => {
-        setRecipes(recipeData)
+        setAllRecipes(recipeData)
         //console.log(recipeData)
     })
 
     
 
 }
+
+
 
 const FetchMyRecipes = () => {
     
@@ -38,7 +48,7 @@ const FetchMyRecipes = () => {
         })
     }) .then ((res) => res.json())
     .then((recipeData) => {
-        setRecipes(recipeData)
+        setMyRecipes(recipeData)
         console.log(recipeData)
     })
 
@@ -61,7 +71,8 @@ const FetchMyRecipes = () => {
    
 
     useEffect(() => {
-        FetchMyRecipes();
+       FetchMyRecipes();
+    FetchRecipes();
     }, []);
 
 
@@ -72,15 +83,25 @@ const FetchMyRecipes = () => {
         <div>
           
             <Col md="2">
-                <RecipeCreate fetchRecipes={FetchRecipes}
+                <RecipeCreate fetchMyRecipes={FetchMyRecipes}
                  token={props.token}/>
+                 <button onClick={handleToggle}>Toggle My Recipes/All Recipes</button>
             </Col>
+
+            {isAllRecipesVisible === true ? (
             <Col md="12">
-                 { <RecipeTable recipes={recipes} FetchRecipes={FetchRecipes} FetchMyRecipes={FetchMyRecipes} 
+                 { <RecipeTable title="All Recipes"recipes={allRecipes} FetchRecipes={FetchRecipes} FetchMyRecipes={FetchMyRecipes} 
                  editUpdateRecipe={editUpdateRecipe} updateOn={updateOn} updateOff={updateOff} token={props.token}/> }
-            </Col>
-            {updateActive ? <RecipeEdit recipeToUpdate={recipeToUpdate} updateOff={updateOff} token={props.token} 
-            FetchMyRecipes={FetchMyRecipes}/> : <></>}
+            </Col> ) : (
+                
+                
+                <Col md="12">
+                 { <RecipeTable title="My Recipes" recipes={myRecipes} FetchRecipes={FetchMyRecipes} FetchMyRecipes={FetchMyRecipes} 
+                 editUpdateRecipe={editUpdateRecipe} updateOn={updateOn} updateOff={updateOff} token={props.token}/> }
+                 {updateActive ? <RecipeEdit recipes={myRecipes} recipeToUpdate={recipeToUpdate} updateOff={updateOff} token={props.token} 
+                  FetchMyRecipes={FetchMyRecipes}/> : <></>}
+                  
+            </Col> )}
         </div>
      );
 }

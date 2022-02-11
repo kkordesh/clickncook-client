@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import {Button, Form, FormGroup, Label, Input, Container} from 'reactstrap';
+import {Button, Form, FormGroup, Label, Input, ModalFooter, Container, Modal, ModalHeader, ModalBody} from 'reactstrap';
 import { APIURL } from '../../endpoints';
 import { EndPoints } from '../../endpoints';
 import RecipeIndex from '../RecipeIndex';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const RecipeCreate = (props) => {
     
@@ -14,6 +16,29 @@ const RecipeCreate = (props) => {
     const [category, setCategory] = useState('');
     const [image, setImage] = useState('');
     const [loading, setLoading] = useState(false);
+    const [modal, setModal] = useState(false);
+    const togglePopup = () => setModal(!modal);
+    
+        const UploadImage = async (e) => {
+            const files = e.target.files;
+            const data = new FormData();
+            data.append("file", files[0]);
+            data.append("upload_preset", "clickncook");
+            setLoading(true);
+            const res = await fetch (
+                "https://api.cloudinary.com/v1_1/dw451lydk/image/upload",
+                {
+                    method: "POST",
+                    body: data, 
+                }
+            )
+            const File = await res.json();
+    
+            console.log(File.secure_url)
+            setImage(File.secure_url)
+            setLoading(false)
+        }
+        
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -34,35 +59,17 @@ const RecipeCreate = (props) => {
             setServings("");
             setCategory("");
             setImage("");
-            props.fetchRecipes();
+            props.FetchMyRecipes();
         })
     }
-
-    const UploadImage = async (e) => {
-        const files = e.target.files;
-        const data = new FormData();
-        data.append("file", files[0]);
-        data.append("upload_preset", "images");
-        setLoading(true);
-        const res = await fetch (
-            "https://api.cloudinary.com/v1_1/dw451lydk/image/upload",
-            {
-                method: "POST",
-                body: data, 
-            }
-        )
-        const File = await res.json();
-
-        console.log(File.secure_url)
-        setImage(File.secure_url)
-        setLoading(false)
-    }
-    
     
 
     return ( 
-        <>
-          <h3>Create a Recipe</h3>
+        <div>
+            <button onClick={togglePopup}>Create New Recipe</button>
+            <Modal isOpen={modal} toggle={togglePopup}>
+         <ModalHeader toggle={togglePopup}>Create New Recipe</ModalHeader>
+         <ModalBody>
           <Form onSubmit={handleSubmit}>
           <FormGroup>
               <Label htmlFor='nameOfRecipe'/>
@@ -97,9 +104,15 @@ const RecipeCreate = (props) => {
                     {loading ? (<h3>Loading...</h3>) : <img src={image} style={{width: "300px"}}/>}
                 </FormGroup>
                 </Container>
+                <ModalFooter>
             <Button type="submit">Click to Submit</Button>
+            <Button onClick={togglePopup}>Cancel</Button>
+            </ModalFooter>
         </Form>
-        </>
+        </ModalBody>
+        </Modal>
+      
+        </div>
      );
 }
  
