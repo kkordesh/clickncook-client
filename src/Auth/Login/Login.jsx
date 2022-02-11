@@ -1,5 +1,5 @@
 //? firstName, lastName, email, password
-
+import "../Auth.css";
 import React, { useState } from 'react';
 import { APIURL, EndPoints } from '../../endpoints';
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
-
+import "../Auth.css";
 const Signup = (props) => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');

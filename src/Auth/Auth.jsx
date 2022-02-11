@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Login from "./Login/Login";
 import Signup from "./Signup/Signup";
-// import "../Auth.css";
+//import "../Auth.css";
 
 const Auth = (props) => {
   const [isLoginVisible, setIsLoginVisible] = useState(true);
