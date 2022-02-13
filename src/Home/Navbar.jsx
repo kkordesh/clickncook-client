@@ -5,7 +5,8 @@ const Navbar = (props) => {
     return (
     <div>
         <nav>
-            <Logout clearLocalStorage={props.clearLocalStorage}/>
+            <Logout  clearLocalStorage={props.clearLocalStorage}/>
+            
         </nav>
     </div>
     );

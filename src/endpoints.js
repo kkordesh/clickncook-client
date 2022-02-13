@@ -1,8 +1,15 @@
-export const EndPoints ={
-    user:{
-        Signup: "./user/register",
-        Login: "./user/login",
+export const EndPoints = {
+    user: {
+        register: "/user/register",
+        login: "/user/login",
     },
+    recipe: {
+        create:"/recipe/",
+        getAllRecipes:"/recipe/",
+        getUserRecipes:"/:owner_id",
+
+   
+},
 };
 
 export const APIURL = "http://localhost:4000"
