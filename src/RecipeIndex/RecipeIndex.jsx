@@ -90,7 +90,7 @@ const FetchMyRecipes = () => {
 
             {isAllRecipesVisible === true ? (
             <Col md="12">
-                 { <RecipeTable title="All Recipes"recipes={allRecipes} FetchRecipes={FetchRecipes} FetchMyRecipes={FetchMyRecipes} 
+                 { <RecipeTable title="All Recipes" recipes={allRecipes} FetchRecipes={FetchRecipes} FetchMyRecipes={FetchMyRecipes} 
                  editUpdateRecipe={editUpdateRecipe} updateOn={updateOn} updateOff={updateOff} token={props.token}/> }
             </Col> ) : (
                 

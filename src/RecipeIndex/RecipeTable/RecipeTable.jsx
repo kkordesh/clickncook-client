@@ -3,12 +3,13 @@ import React, { useState, useEffect } from 'react';
 import "./RecipeTable.css"
 import RecipeRow from './RecipeRow/RecipeRow';
 import {APIURL, EndPoints} from '../../endpoints';
-import {Table, Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
+import {Table, Button, Modal, ModalHeader, Form, ModalBody, ModalFooter, Label, Input} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const RecipeTable = (props) => {
 
+    //const [category, setCategory] = useState('');
     const [modal, setModal] = useState(false);
     const togglePopup = () => setModal(!modal);
 
@@ -23,21 +24,23 @@ const deleteRecipe = (recipe) => {
     .then(() => props.FetchMyRecipes())
 }
 
-const FetchCategory = (recipe) => {
-    fetch(`http://localhost:4000/recipe/category/${recipe.category}`, {
-        method: 'GET',
-        headers: new Headers ({
-            'Content-Type': 'application/json',
-            'Authorization': props.token
-        })
-    }) .then ((res) => res.json())
-    .then((recipeData) => {
-        props.setAllRecipes(recipeData)
-        //console.log(recipeData)
-    })
-    .then(() => props.FetchRecipes())
+// const FetchCategory = (recipe) => {
 
-}
+//     fetch(`http://localhost:4000/recipe/category/${recipe.category}`, {
+//         method: 'GET',
+//         headers: new Headers ({
+//             'Content-Type': 'application/json',
+//             'Authorization': props.token
+//         })
+//     }) .then ((res) => res.json())
+//     .then((recipeData) => {
+//         props.setAllRecipes(recipeData)
+//     //     //console.log(recipeData)
+//     })
+//     .then(() => props.FetchRecipes())
+
+// }
+// console.log(FetchCategory)
 
 
 const recipeMapper = () => {
@@ -46,17 +49,17 @@ const recipeMapper = () => {
             <tr key={index}>
                 <td>{recipe.nameOfRecipe}</td>
                 <td>
-            
-               
+
+
       <button color="danger" onClick={togglePopup}>Click for directions</button>
- 
+
       <Modal isOpen={modal} toggle={togglePopup}>
         <ModalHeader toggle={togglePopup}>{recipe.nameOfRecipe} directions</ModalHeader>
         <ModalBody>
          {recipe.directions}
         </ModalBody>
         <ModalFooter>
-        
+
           <button color="secondary" onClick={togglePopup}>Close</button>
         </ModalFooter>
       </Modal>
@@ -75,13 +78,30 @@ const recipeMapper = () => {
     })
 }
 
+// const categorysearch = (e) => {
+//     e.preventDefault();
+//     FetchCategory();
+// }
 
 
 
 
-    return ( 
+
+    return (
         <>
         <h2>{props.title}</h2>
+{/*         
+       < Form onChange={categorysearch} >
+        <Label htmlFor='category'/>
+        <Input type="select" placeholder='search by category' value={category}>
+            <option value="All">All</option>
+            <option value="Breakfast">Breakfast</option>
+            <option value="Lunch">Lunch</option>
+            <option value="Dinner">Dinner</option>
+            <option value="Dessert">Dessert</option>
+        </Input>
+        <Button type="search">Search</Button>
+        </Form> */}
         <div>
         <Table striped>
             <thead>
@@ -102,5 +122,5 @@ const recipeMapper = () => {
         </>
      );
 }
- 
+
 export default RecipeTable;
