@@ -1,1 +1,11 @@
-/* navbar css stuff*/
+#piePic {
+	height: 75px;
+  }
+  
+  nav {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	background-color: lightgrey;
+  }
+  
