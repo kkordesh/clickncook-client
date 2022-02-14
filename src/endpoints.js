@@ -7,6 +7,8 @@ export const EndPoints = {
         create:"/recipe/",
         getAllRecipes:"/recipe/",
         getUserRecipes:"/:owner_id",
+        getCategory: "/category/:category",
+        getDessert: "/category/dinner"
 
    
 },
