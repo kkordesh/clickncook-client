@@ -26,7 +26,7 @@ function handleSubmit(event){
     };
     fetch(APIURL + EndPoints.user.login, requestOptions)
         .then(response => response.json())
-        .then(data => {props.updateLocalStorage(data.sessionToken) 
+        .then(data => {props.updateLocalStorage(data.token) 
             console.log(data)})
         .catch(error => console.log('error', error));
 }

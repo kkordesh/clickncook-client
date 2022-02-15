@@ -12,21 +12,21 @@ const Signup = (props) => {
         event.preventDefault();
         fetch("http://localhost:4000/user/register", {
             method: 'POST',
-            body: JSON.stringify({user:{ firstName: firstName, lastName: lastName, email:email, passwordhash: password}}),
+            body: JSON.stringify({ firstName: firstName, lastName: lastName, email: email, password: password}),
             headers: new Headers({
                 'Content-Type': 'application/json'
             })
         }).then (
             (response) => response.json()
         ).then ((data) => {
-            props.updateToken(data.sessionToken)
+            props.updateLocalStorage(data.token)
         })
     }
 
     return (
         <div>
             <h1>Welcome to ClicknCook Sign Up</h1>
-            <Form on onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label htmlFor="firstName">First Name</Label>
                     <Input onChange={(e) => setFirstName(e.target.value)} name="firstName" value={firstName}/>
