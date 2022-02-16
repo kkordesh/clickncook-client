@@ -158,29 +158,6 @@ const categorySearch = (e) => {
     FetchCategory(category);
 }
 
-// const handleSubmit = (e) => {
-//     e.preventDefault();
-//     setPageNumber(0);
-//     props.FetchRecipes();
-// }
-
-// const changePageNumber = (event, direction) => {
-//     event.preventDefault();
-//     if(direction === 'down') {
-//       if(pageNumber > 0) {
-//         setPageNumber(pageNumber + 1);
-//           props.FetchRecipes();
-//         }
-//       }
-//   if(direction === 'up') {
-//     setPageNumber(pageNumber + 1);
-//     props.FetchRecipes();
-//     }
-//   };
-
-// PAGNATION 
-
-
 
 
     return (
@@ -193,7 +170,7 @@ const categorySearch = (e) => {
        < Form onSubmit={categorySearch} className="categorysearch" >
         <h4 id='cattitle'>Search By Category</h4>
         <Label htmlFor='category'/>
-        <Input type="select" placeholder='search by category' value={category} onChange={(e) => setCategory(e.target.value)} >
+        <Input type="select"  value={category} onChange={(e) => setCategory(e.target.value)} >
             <option value="all">All</option>
             <option value="breakfast">Breakfast</option>
             <option value="lunch">Lunch</option>
