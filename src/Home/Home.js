@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <div className='home-container'>
             <img src={logo} height='275px' width='320px' alt='CNClogo'  />
-            <h1>Storage for all  your special recipes</h1>
+            <h1>Finding and storing all  your special recipes</h1>
                 <Button 
                     className='btns' 
                     buttonStyle='btn--outline' 
