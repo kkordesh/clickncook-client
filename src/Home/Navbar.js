@@ -48,7 +48,7 @@ class Navbar extends Component {
                 <div className='NavbarRoute'>
                     <Routes>
                         <Route exact path='/home' element={<Home/>} />
-                        <Route exact path='/recipeindex' element={<RecipeIndex/>} />
+                        <Route exact path='/recipeindex' element={<RecipeIndex/>} token={this.props.token} />
                         <Route exact path='/about' element={<About/>}/>
                     </Routes>
                 </div>
