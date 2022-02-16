@@ -1,0 +1,65 @@
+.img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+}
+
+#homesign {
+    text-align: center;
+    background-color:#fffdd0 ;
+    color: black;
+    font-style: italic;
+    padding-top: 5%;
+    width: 40%;
+    height: 20%;
+    margin-top: 5%;
+}
+
+.home-container {
+    background: url('../assets/dilyara-garifullina-5fn1LeWzhX4-unsplash.jpg') center center/cover no-repeat;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,0,2);
+    object-fit: contain;
+    justify-content: center;
+}
+
+.home-container > h1 {
+    color: black;
+    font-size: 100px;
+    margin-top: 100px;
+}
+
+.home-btns {
+    margin-top: 8px;
+    color: black;
+    font-size: 32px;
+}
+
+@media screen and (max-width: 960px) {
+    .home-container > h1 {
+        font-size: 70px;
+        margin-top: 150px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .home-container > h1 {
+        font-size: 50px;
+        margin-top: 100px;
+    }
+
+    .btn-mobile {
+        display: block;
+        text-decoration: none;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
