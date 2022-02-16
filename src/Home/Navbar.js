@@ -6,7 +6,7 @@ import './Navbar.css';
 import logo from '../assets/clickncook.png';
 import Home from './Home';
 import RecipeIndex from '../RecipeIndex/RecipeIndex';
-import About from './About';
+// import About from './About';
 import Logout from './Logout/Logout';
 
 class Navbar extends Component {
@@ -32,7 +32,7 @@ class Navbar extends Component {
                         {/* return ( */}
                             <li><Link to='/'>Home</Link></li>
                             <li><Link to='/recipeindex'>Recipe Index</Link></li>
-                            <li><Link to='/about'>About</Link></li>
+                            {/* <li><Link to='/about'>About</Link></li> */}
                             <Logout clearLocalStorage={this.props.clearLocalStorage} />                            {/* <li key={index}>
                                 <a className={item.cName} href={item.url}>
                                     {item.title}
@@ -49,7 +49,7 @@ class Navbar extends Component {
                     <Routes>
                         <Route exact path='/' element={<Home/>} />
                         <Route exact path='/recipeindex' element={<RecipeIndex token={this.props.token}/>} />
-                        <Route exact path='/about' element={<About/>}/>
+                        {/* <Route exact path='/about' element={<About/>}/> */}
                     </Routes>
                 </div>
                             </div>
