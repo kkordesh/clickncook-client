@@ -6,6 +6,17 @@
     z-index: -1;
 }
 
+#homesign {
+    text-align: center;
+    background-color:#fffdd0 ;
+    color: black;
+    font-style: italic;
+    padding-top: 5%;
+    width: 40%;
+    height: 20%;
+    margin-top: 5%;
+}
+
 .home-container {
     background: url('../assets/dilyara-garifullina-5fn1LeWzhX4-unsplash.jpg') center center/cover no-repeat;
     height: 100vh;

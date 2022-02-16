@@ -68,6 +68,7 @@
 		left: -100%;
 		opacity: 1;
 		transition: all 0.5s ease;
+		
 	}
 	.nav-menu.active {
 		background-color: orange;
@@ -135,4 +136,14 @@
 	}
 
 
+}
+
+#logout {
+	background-color: #F2CA52;
+	margin-left: 60%;
+	margin-top: 10%;
+}
+
+link {
+margin: 50%;
 }
