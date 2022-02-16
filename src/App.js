@@ -1,20 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
-import RecipeIndex from './RecipeIndex/RecipeIndex';
-import React, { useState, useEffect } from "react";
-import Auth from './Auth/Auth.jsx';
+import React, { useState, useEffect } from 'react';
+
+
+import {BrowserRouter as Router } from 'react-router-dom';
 import Navbar from './Home/Navbar';
+import './App.css';
+import Auth from './Auth/Auth';
+import Home from './Home/Home';
+import About from './Home/About';
 
-
-
-
-  //Code below is for having the recipes only able to display when the user is succesfully logged in
-  
-  
-    /*const protectedViews = () => {
-      return (token === localStorage.getItem ('token') ? <RecipeIndex token={token}/>
-      : <Auth updateToken={updateToken}/>)
-    } */
   
   
   
@@ -36,27 +29,21 @@ import Navbar from './Home/Navbar';
   };
   return (
     <div className="App">
-      <Navbar clearLocalStorage = {
-        clearLocalStorage}/>
-
+      <Router>
         { token ? (
-          <RecipeIndex token={token} />
+          <Navbar clearLocalStorage = {
+            clearLocalStorage} token={token}/>
+          ) : (
+              <Auth updateLocalStorage = {
+                updateLocalStorage}/> 
+        )};
       
-        ) : (
-      
-       <Auth updateLocalStorage = {
-         updateLocalStorage}/> 
-  )}
-           {/* <Navbar clearToken={clearToken}/>
-      {protectedViews()} */}
-      
-
-    </div>
+         </Router>
+         </div>
   );
-};
-
-
-
+       };
+       
+      
 
 
 export default App;

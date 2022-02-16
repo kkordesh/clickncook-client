@@ -32,7 +32,7 @@ function handleSubmit(event){
 }
     return (
         <div>
-            <h1>Hello from Login</h1>
+            <h1 id="logintitle">Login</h1>
             <form className="loginForm">
             <br/>
                 <label htmlFor="email">Email</label>
@@ -53,7 +53,7 @@ function handleSubmit(event){
                 onChange={(e)=>setPassword(e.target.value)} 
                 />
                 <br />
-                <button type="submit" onClick={handleSubmit}>Submit Login</button>
+                <button id="loginbutton" type="submit" onClick={handleSubmit}>Submit Login</button>
             </form>
         </div>
       );

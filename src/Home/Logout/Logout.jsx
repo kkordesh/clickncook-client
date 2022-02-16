@@ -7,14 +7,14 @@ const Logout = (props) => {
 
     return ( 
         <div>
-           <img 
+           <button 
            src={logoutPic} 
            alt="Logout" 
            id="logout" 
            className="logout" 
            onClick={props.clearLocalStorage}
-           style={{width: "100px"}} />
-           <h6>Logout</h6>
+           style={{width: "100px"}}>Logout</button>
+           
         </div>
      );
 };

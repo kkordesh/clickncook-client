@@ -6,51 +6,98 @@ text-shadow: black 20%;
 margin: 40px;
 } */
 
-
+#welcometitle {
+    background-color: green;
+    width: 100%;
+    padding-top: 1.5%;
+    padding-right:4%;
+    text-align: center;
+    height: 100px;
+    margin-bottom: 5%;
+    color: bisque;
+    font-weight: 500;
+}
 
 .loginForm {
-    background-color: #F2CA52;
+    background-color:#fffdd0 ;
     border: solid black 2px;
-     margin-top: 10%;
-     margin-left: 15%; 
-    margin-bottom: 10%;
+ 
+     margin-top: 0%;
+   
+    margin-bottom: 2%;
     margin-right: 15%;
     padding-left: 3%;
     padding-top: 3%;
     padding-bottom: 3%;
     padding-right: 3%; 
-    margin-left: 770px;
+    margin-left: 38%;
     width: 350px;
     height: 350px;
     align-self: center;
+    text-align: center;
 }
+
+#loginbutton {
+    margin: 15%;
+}
+
 
 .signupForm {
-    background-color: #F2CA52;
+    background-color:#fffdd0 ;
     border: solid black 2px;
-    margin-top: 5%;
-    margin-left: 770px;;
-    margin-bottom: 10%;
+     margin-top: 0%;
+   
+    margin-bottom: 2%;
     margin-right: 15%;
     padding-left: 3%;
-    padding-top: 3%;
+    padding-top: 0%;
     padding-bottom: 3%;
-    padding-right: 3%;
+    padding-right: 3%; 
+    margin-left: 38%;
     width: 350px;
-    height: 500px
+    height: 450px;
+    align-self: center;
+    text-align: center;
 }
 
-/* label {
+
+
+ label {
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: medium;
     font-style: inherit;
-    font-weight: lighter;
-} */
+    padding: 3%;
+    font-weight: 500;
+} 
 
 h1 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: xx-large;
     font-style: initial;
     font-weight: 300;
+}
+
+#logintitle {
+    background-color: #F2CA52;
+    width: 350px;
+    text-align: center;
+    margin-left: 38%;
+    margin-bottom: 0%;
+    font-weight: 500;
+}
+
+#signuptitle {
+    background-color: #F2CA52;
+    width: 350px;
+    text-align: center;
+    margin-left: 38%;
+    margin-bottom: 0%;
+    margin-top: 0%;
+    font-weight: 500;
+}
+
+#togglelogin {
+    margin-left: 43%;
+    
 }
