@@ -15,6 +15,7 @@ class Navbar extends Component {
         return(
             
             <nav className='NavbarItems'>
+                
                 <img src={logo} height='75px' width='100px'  />
                 <h1 className="navbar-logo">ClickNCook<i className='fab logo'></i></h1>
                 <div className='menu-icon' onClick={this.handleClick}>

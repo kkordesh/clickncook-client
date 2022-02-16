@@ -2,11 +2,12 @@ import React from 'react';
 import '../App.css'
 import { Button } from './Button';
 import './Home.css';
+import logo from '../assets/clickncook.png'
 
 const Home = () => {
     return (
         <div className='home-container'>
-            <img src="../assets/dilyara-garifullina-5fn1LeWzhX4-unsplash.jpg" />
+            <img src={logo} height='275px' width='320px' alt='CNClogo'  />
             <h1>Storage for all  your special recipes</h1>
                 <Button 
                     className='btns' 

@@ -1,26 +1,26 @@
  export const MenuItems = [
     {
         title: 'Home',
-        url: '#',
+        url: './Home.js',
         cName: 'nav-links'
     },
     {
         title: 'My Recipes',
-        url: '#',
+        url: './MenuItems.js',
         cName: 'nav-links'
     },
     {
         title: 'About',
-        url: '#',
+        url: './About.js',
         cName: 'nav-links'
     },    {
         title: 'Log out',
-        url: '#',
+        url: './Logout/Logout.jsx',
         cName: 'nav-links'
     },
     {
         title: 'Sign up',
-        url: '#',
+        url: '../Auth/Signup/Signup.jsx',
         cName: 'nav-links-mobile'
     },
 ]
