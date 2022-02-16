@@ -66,7 +66,7 @@ const RecipeCreate = (props) => {
 
     return ( 
         <div>
-            <button onClick={togglePopup}>Create New Recipe</button>
+            <button className='create'onClick={togglePopup}>Create New Recipe</button>
             <Modal isOpen={modal} toggle={togglePopup}>
          <ModalHeader toggle={togglePopup}>Create New Recipe</ModalHeader>
          <ModalBody>
@@ -77,7 +77,7 @@ const RecipeCreate = (props) => {
           </FormGroup>
           <FormGroup>
               <Label htmlFor='directions'/>
-              <input name="directions" placeholder='directions (ingredients, temperature times, etc.)' value={directions} onChange={(e) => setDirections(e.target.value)} />
+              <input name="directions" placeholder='directions (ingredients, temperature times, etc.)'  value={directions} onChange={(e) => setDirections(e.target.value)} />
           </FormGroup>
           <FormGroup>
               <Label htmlFor='timeToCook'/>

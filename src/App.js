@@ -7,6 +7,7 @@ import Navbar from './Home/Navbar';
 
 
 
+
   //Code below is for having the recipes only able to display when the user is succesfully logged in
   
   
@@ -40,6 +41,7 @@ import Navbar from './Home/Navbar';
 
         { token ? (
           <RecipeIndex token={token} />
+      
         ) : (
       
        <Auth updateLocalStorage = {

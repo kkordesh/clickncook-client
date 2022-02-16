@@ -26,7 +26,7 @@ const Signup = (props) => {
     return (
         <div>
             <h1>Welcome to ClicknCook Sign Up</h1>
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit} className='signupForm'>
                 <FormGroup>
                     <Label htmlFor="firstName">First Name</Label>
                     <Input onChange={(e) => setFirstName(e.target.value)} name="firstName" value={firstName}/>

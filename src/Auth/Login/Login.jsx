@@ -33,7 +33,7 @@ function handleSubmit(event){
     return (
         <div>
             <h1>Hello from Login</h1>
-            <form>
+            <form className="loginForm">
             <br/>
                 <label htmlFor="email">Email</label>
             <br/>
