@@ -5,8 +5,7 @@ import {BrowserRouter as Router } from 'react-router-dom';
 import Navbar from './Home/Navbar';
 import './App.css';
 import Auth from './Auth/Auth';
-import Home from './Home/Home';
-import About from './Home/About';
+
 
   
   
