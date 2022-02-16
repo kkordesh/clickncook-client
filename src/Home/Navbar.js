@@ -7,6 +7,7 @@ import logo from '../assets/clickncook.png';
 import Home from './Home';
 import RecipeIndex from '../RecipeIndex/RecipeIndex';
 import About from './About';
+import Logout from './Logout/Logout';
 
 class Navbar extends Component {
     state = { clicked: false }
@@ -29,11 +30,10 @@ class Navbar extends Component {
                 <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
                     {/* {MenuItems.map((item, index) => { */}
                         {/* return ( */}
-                            <li><Link to='/home'>Home</Link></li>
+                            <li><Link to='/'>Home</Link></li>
                             <li><Link to='/recipeindex'>Recipe Index</Link></li>
                             <li><Link to='/about'>About</Link></li>
-
-                            {/* <li key={index}>
+                            <Logout clearLocalStorage={this.props.clearLocalStorage} />                            {/* <li key={index}>
                                 <a className={item.cName} href={item.url}>
                                     {item.title}
                                 </a>
@@ -41,14 +41,14 @@ class Navbar extends Component {
                             {/* ) */}
                     {/* })} */}
                 </ul>
-                <Button>Sign Up</Button>
+                
                 
             </nav>
             
                 <div className='NavbarRoute'>
                     <Routes>
-                        <Route exact path='/home' element={<Home/>} />
-                        <Route exact path='/recipeindex' element={<RecipeIndex/>} token={this.props.token} />
+                        <Route exact path='/' element={<Home/>} />
+                        <Route exact path='/recipeindex' element={<RecipeIndex token={this.props.token}/>} />
                         <Route exact path='/about' element={<About/>}/>
                     </Routes>
                 </div>

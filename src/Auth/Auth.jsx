@@ -16,14 +16,14 @@ const Auth = (props) => {
   }
   return (
     <div>
-      <h1>Welcome to ClicknCook Login and Sign Up</h1>
+      <h1 id="welcometitle">Welcome to ClicknCook</h1>
       {isLoginVisible === true ? (
         <Login updateLocalStorage={props.updateLocalStorage} />
       ) : (
         <Signup updateLocalStorage={props.updateLocalStorage} />
       )}
       <br />
-      <button onClick={handleToggle}>Toggle Login/Sign up</button>
+      <button id='togglelogin'onClick={handleToggle}>Toggle Login/Sign up</button>
     </div>
   );
 };

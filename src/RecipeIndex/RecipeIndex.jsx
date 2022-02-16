@@ -3,6 +3,7 @@ import {Container, Row, Col} from 'reactstrap';
 import RecipeCreate from './RecipeCreate/RecipeCreate';
 import RecipeTable from './RecipeTable/RecipeTable';
 import RecipeEdit from './RecipeEdit/RecipeEdit';
+import "./RecipeIndex.css"
 
 
 const RecipeIndex = (props) => {
@@ -85,7 +86,7 @@ const FetchMyRecipes = () => {
             <Col md="2">
                 <RecipeCreate fetchMyRecipes={FetchMyRecipes}
                  token={props.token}/>
-                 <button onClick={handleToggle}>Toggle My Recipes/All Recipes</button>
+                 <button className='tog' onClick={handleToggle}>Toggle My Recipes/All Recipes</button>
             </Col>
 
             {isAllRecipesVisible === true ? (
