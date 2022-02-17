@@ -9,7 +9,7 @@ return (
             
             <h1 id='abouttitle'>Storage for all  your special recipes</h1>
 			<p id='aboutpar'>
-				ClickNCook has been around for 2 years.  We have over 100,000 recipes.  We are designed for thosethat would like to keep track of their recipes and share them with the collective.  We are hoping that our website will be very user friendly and allow quick access to datat and to view what is possible to cook based on breakfast, lunch, dinner or dessert.
+				ClickNCook has been around for 2 years.  We have over 100,000 recipes.  We are designed for those that would like to keep track of their recipes and share them with the collective.  We are hoping that our website will be very user friendly and allow quick access to datat and to view what is possible to cook based on breakfast, lunch, dinner or dessert.
 			</p>
         </div>
 );
