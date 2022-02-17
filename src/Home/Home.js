@@ -4,6 +4,7 @@ import { Button } from './Button';
 import './Home.css';
 import logo from '../assets/clickncook.png'
 
+
 const Home = () => {
     return (
         <div className='home-container'>

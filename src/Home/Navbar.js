@@ -30,9 +30,9 @@ class Navbar extends Component {
                 <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
                     {/* {MenuItems.map((item, index) => { */}
                         {/* return ( */}
-                            <li><Link to='/'>Home</Link></li>
-                            <li><Link to='/recipeindex'>Recipe Index</Link></li>
-                            <li><Link to='/about'>About</Link></li>
+                            <li id='homelink' ><Link to='/'>Home</Link></li>
+                            <li id='recipelink'><Link to='/recipeindex'>Recipe Index</Link></li>
+                            <li id='aboutlink'><Link to='/about'>About</Link></li>
                             <Logout clearLocalStorage={this.props.clearLocalStorage} />                            {/* <li key={index}>
                                 <a className={item.cName} href={item.url}>
                                     {item.title}
