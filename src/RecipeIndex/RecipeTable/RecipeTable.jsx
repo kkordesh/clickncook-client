@@ -11,7 +11,7 @@ import './RecipeTable.css'
 const RecipeTable = (props) => {
     
 
-    
+    // console.log(props.title)
     
     const [modal, setModal] = useState(false);
     const [category, setCategory] = useState('all');
@@ -61,7 +61,9 @@ const deleteRecipe = (recipe) => {
 
 
 
-const FetchCategory = (category) => {
+const FetchCategory = () => {
+    // console.log(category)
+    // console.log(`http://localhost:4000/recipe/category/${category}`)
 fetch (`http://localhost:4000/recipe/category/${category}`,
     //  fetch( "http://localhost:4000/recipe/dessert", 
     {
@@ -71,9 +73,9 @@ fetch (`http://localhost:4000/recipe/category/${category}`,
             'Authorization': props.token
         })
     }) .then ((res) => res.json())
-    .then((recipeData) => {
-        setRecipeData(recipeData)
-        console.log(recipeData)
+    .then((data) => {
+        console.log(data)
+        setRecipeData(data)
     })
     //.then(() => props.FetchRecipes())
     .catch ((err) => console.log(err) )
@@ -113,12 +115,13 @@ const recipeMapper = () => {
     //                 <Button className='edit' onClick={() => {deleteRecipe(recipe)}}>Delete</Button></> : null }
     //             </td>
     //         </tr>
-    <RecipeRow index={index} recipe={recipe} editUpdateRecipe={props.editUpdateRecipe} updateOn={props.updateOn} deleteRecipe={deleteRecipe}  />
+    <RecipeRow index={index} title={props.title} recipe={recipe} editUpdateRecipe={props.editUpdateRecipe} updateOn={props.updateOn} deleteRecipe={deleteRecipe}  />
         )
     })
 }
 
 const newRecipeMapper = () => {
+    // console.log(props.recipes)
     return recipeData.map((recipe, index) => {
         return (
             <tr key={index}>
@@ -140,6 +143,7 @@ const newRecipeMapper = () => {
       </Modal>
 
                 </td>
+               
                 <td>{recipe.timeToCook}</td>
                 <td>{recipe.servings}</td>
                 <td>{recipe.category}</td>
@@ -155,7 +159,7 @@ const newRecipeMapper = () => {
 
 const categorySearch = (e) => {
     e.preventDefault();
-    FetchCategory(category);
+    FetchCategory();
 }
 
 // const handleSubmit = (e) => {
@@ -195,10 +199,10 @@ const categorySearch = (e) => {
         <Label htmlFor='category'/>
         <Input type="select" placeholder='search by category' value={category} onChange={(e) => setCategory(e.target.value)} >
             <option value="all">All</option>
-            <option value="breakfast">Breakfast</option>
-            <option value="lunch">Lunch</option>
-            <option value="dinner">Dinner</option>
-            <option value="dessert">Dessert</option>
+            <option value="Breakfast">Breakfast</option>
+            <option value="Lunch">Lunch</option>
+            <option value="Dinner">Dinner</option>
+            <option value="Dessert">Dessert</option>
         </Input>
         <Button type="submit">Search</Button>
         </Form></> : null }
