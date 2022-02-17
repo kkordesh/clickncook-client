@@ -6,7 +6,7 @@ import './Navbar.css';
 import logo from '../assets/clickncook.png';
 import Home from './Home';
 import RecipeIndex from '../RecipeIndex/RecipeIndex';
-import About from './About';
+import About from './about';
 import Logout from './Logout/Logout';
 
 class Navbar extends Component {
