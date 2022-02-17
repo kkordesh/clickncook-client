@@ -29,22 +29,22 @@ const Signup = (props) => {
             <Form onSubmit={handleSubmit} className='signupForm'>
                 <FormGroup>
                     <Label htmlFor="firstName">First Name</Label>
-                    <Input onChange={(e) => setFirstName(e.target.value)} placeholder="type first name"name="firstName" value={firstName}/>
+                    <Input onChange={(e) => setFirstName(e.target.value)} placeholder="type first name"name="firstName" value={firstName} required/>
                 </FormGroup>
 
                 <FormGroup>
                     <Label htmlFor="lastName">Last Name</Label>
-                    <Input onChange={(e) => setLastName(e.target.value)} placeholder="type last name"name="lastName" value={lastName}/>
+                    <Input onChange={(e) => setLastName(e.target.value)} placeholder="type last name"name="lastName" value={lastName} required/>
                 </FormGroup>
 
                 <FormGroup>
                     <Label htmlFor="email">Email</Label>
-                    <Input onChange={(e) => setEmail(e.target.value)} placeholder="type email"name="email" value={email}/>
+                    <Input onChange={(e) => setEmail(e.target.value)} placeholder="type email"name="email" value={email} required/>
                 </FormGroup>
                 
                 <FormGroup>
                     <Label htmlFor="password">Password</Label>
-                    <Input onChange={(e) => setPassword(e.target.value)} placeholder="type password" name="password" value={password}/>
+                    <Input onChange={(e) => setPassword(e.target.value)} placeholder="type password" name="password" value={password} required/>
                 </FormGroup>
                 <Button type="submit">Sign Up</Button>
             </Form>

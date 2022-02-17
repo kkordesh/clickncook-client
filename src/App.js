@@ -34,7 +34,7 @@ import Auth from './Auth/Auth';
             clearLocalStorage} token={token}/>
           ) : (
               <Auth updateLocalStorage = {
-                updateLocalStorage}/> 
+                updateLocalStorage} token={token}/> 
         )};
       
          </Router>
