@@ -32,7 +32,22 @@
 .nav-links {
 	color: bisque;
 	text-decoration: none;
-	padding: 0.5rem 1rem;
+	text-align: center;
+	
+	
+}
+
+/* ul {
+	justify-content: space-around;
+	display: flex;
+	list-style: none;
+	
+} */
+
+ul li a {
+	padding: 2%;
+	font-weight: bold;
+	color: #fffdd0;
 }
 
 .nav-links:hover {
