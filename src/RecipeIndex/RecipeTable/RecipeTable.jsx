@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import "./RecipeTable.css"
 import RecipeRow from './RecipeRow/RecipeRow';
-import {APIURL, EndPoints} from '../../endpoints';
+
 import {Table, Button, Modal, ModalHeader, Form, ModalBody, ModalFooter, Label, Input} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './RecipeTable.css'
