@@ -6,7 +6,7 @@ import {APIURL, EndPoints} from '../../endpoints';
 import {Table, Button, Modal, ModalHeader, Form, ModalBody, ModalFooter, Label, Input} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './RecipeTable.css'
-
+import APIURL from '../../helpers/environment';
 
 const RecipeTable = (props) => {
     
@@ -23,7 +23,7 @@ const RecipeTable = (props) => {
     const togglePopupTwo = () => setModalTwo(!modalTwo);
 
 const deleteRecipe = (recipe) => {
-    fetch(`http://localhost:4000/recipe/${recipe.id}`, {
+    fetch(`${APIURL}/recipe/${recipe.id}`, {
         method: 'DELETE',
         headers: new Headers ({
             'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ const deleteRecipe = (recipe) => {
 const FetchCategory = () => {
     // console.log(category)
     // console.log(`http://localhost:4000/recipe/category/${category}`)
-fetch (`http://localhost:4000/recipe/category/${category}`,
+fetch (`${APIURL}/recipe/category/${category}`,
     //  fetch( "http://localhost:4000/recipe/dessert", 
     {
         method: 'GET',

@@ -1,7 +1,7 @@
 //recipe edit jsx here
 import React, { useState } from 'react';
 import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, Container, ModalFooter} from 'reactstrap'
-
+import APIURL from '../../helpers/environment';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const RecipeEdit = (props) => {
@@ -17,7 +17,7 @@ const RecipeEdit = (props) => {
 
     const recipeUpdate = (e, recipe) => {
         e.preventDefault();
-        fetch(`http://localhost:4000/recipe/${props.recipeToUpdate.id}`, {
+        fetch(`${APIURL}/recipe/${props.recipeToUpdate.id}`, {
             method: 'PUT',
             body: JSON.stringify({nameOfRecipe: editName, directions: editDir, timeToCook: editTime, 
             servings: editServings, category:editCategory, image: editImage}),

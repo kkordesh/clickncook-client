@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import "../Auth.css";
+import APIURL from '../../helpers/environment';
 const Signup = (props) => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -10,7 +11,7 @@ const Signup = (props) => {
 
     let handleSubmit = (event) => {
         event.preventDefault();
-        fetch("http://localhost:4000/user/register", {
+        fetch(`${APIURL}/user/register`, {
             method: 'POST',
             body: JSON.stringify({ firstName: firstName, lastName: lastName, email: email, password: password}),
             headers: new Headers({
@@ -44,7 +45,7 @@ const Signup = (props) => {
                 
                 <FormGroup>
                     <Label htmlFor="password">Password</Label>
-                    <Input onChange={(e) => setPassword(e.target.value)} placeholder="type password" name="password" value={password} required/>
+                    <Input type='password'onChange={(e) => setPassword(e.target.value)} placeholder="type password" name="password" value={password} required/>
                 </FormGroup>
                 <Button type="submit">Sign Up</Button>
             </Form>

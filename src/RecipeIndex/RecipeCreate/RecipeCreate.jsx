@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {Button, Form, FormGroup, Label, Input, ModalFooter, Container, Modal, ModalHeader, ModalBody} from 'reactstrap';
-import { APIURL } from '../../endpoints';
+
 import { EndPoints } from '../../endpoints';
 import RecipeIndex from '../RecipeIndex';
-
+import APIURL from '../../helpers/environment';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const RecipeCreate = (props) => {
@@ -42,7 +42,7 @@ const RecipeCreate = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch('http://localhost:4000/recipe', {
+        fetch(`${APIURL}/recipe`, {
             method: 'POST',
             body: JSON.stringify({nameOfRecipe: nameOfRecipe, directions: directions, timeToCook: timeToCook, servings:Number(servings),
             category: category, image: image}),

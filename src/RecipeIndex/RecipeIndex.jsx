@@ -4,7 +4,7 @@ import RecipeCreate from './RecipeCreate/RecipeCreate';
 import RecipeTable from './RecipeTable/RecipeTable';
 import RecipeEdit from './RecipeEdit/RecipeEdit';
 import "./RecipeIndex.css"
-
+import APIURL from '../helpers/environment';
 
 const RecipeIndex = (props) => {
     const [recipes, setRecipes] = useState([]);
@@ -21,7 +21,7 @@ function handleToggle () {
 }
 
 const FetchRecipes = () => {
-    fetch('http://localhost:4000/recipe', {
+    fetch(`${APIURL}/recipe`, {
         method: 'GET',
         headers: new Headers ({
             'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ const FetchRecipes = () => {
 
 const FetchMyRecipes = () => {
     
-    fetch("http://localhost:4000/recipe/0" , {
+    fetch(`${APIURL}/recipe/0` , {
         method: 'GET',
         headers: new Headers ({
             'Content-Type': 'application/json',
